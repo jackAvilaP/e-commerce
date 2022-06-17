@@ -1,8 +1,45 @@
-.product-card .image {
+li {
+    list-style: none;
+    margin-left: 20px;
+    border: 1px solid #dcd9d9;
+    border-radius: 10px;
+    margin: 20px;
+    height: 420px;
+    width: 250px;
+}
+
+.image {
     align-items: center;
-    border-bottom: 1px solid #515151;
+    border-bottom: 1px solid #dcd9d9;
     display: flex;
     height: 250px;
     justify-content: center;
     position: relative;
+}
+
+.image img {
+    display: block;
+    height: 80%;
+    margin: 0 auto;
+    object-fit: contain;
+    width: 80%;
+}
+li .info {
+    padding: 20px 20px 30px;
+}
+li h5 {
+    padding: 5px;
+}
+li button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: #009ae4;
+    border-radius: 50%;
+}
+li .prices-pruducts {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 10px;
 }

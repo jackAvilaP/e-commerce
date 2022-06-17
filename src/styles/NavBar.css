@@ -4,6 +4,7 @@
     right: 0;
     top: 0;
     z-index: 99;
+    background: #fff;
 }
 .navbar .fixed nav {
     display: flex;
