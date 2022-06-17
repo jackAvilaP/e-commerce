@@ -1,0 +1,31 @@
+.search-box {
+    margin: 0 10px 30px;
+    position: relative;
+}
+.search-box .form-search {
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 90px;
+    max-width: 900px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.form-search input {
+    border: 1px solid #dcd9d9;
+    flex: 1 1;
+    font-size: 18px;
+    padding: 5px 14px;
+    
+}
+
+.form-search button{
+    border: none;
+    width: 70px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #009ae4;
+}
+.form-search button #iconGlass{
+    font-size: 20px;
+}

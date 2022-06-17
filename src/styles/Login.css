@@ -1,0 +1,102 @@
+.container-login {
+  margin: 0;
+  padding: 25px;
+  max-width: 400px;
+  background-attachment: fixed;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background: #fff;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.login-box .user-box {
+  position: relative;
+  margin-top: 30px;
+}
+.login-box strong {
+  color: #515151;
+  font-size: 20px;
+  padding: 15px;
+}
+.login-box p {
+  color: #009ae4;
+  margin: 20px 0;
+  
+}
+.login-box .user-box input {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 55px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  margin-top: 10px;
+  outline: none;
+  background-color: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 22px;
+  color: #515151;
+  font-weight: 100;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus {
+  color: #515151;
+  border-bottom: 1px solid #009ae4;
+}
+
+.login-box .user-box input:focus + label,
+.login-box .user-box input:valid + label {
+  color: #009ae4;
+  top: -15px;
+  font-size: 18px;
+}
+
+.myButton {
+  box-shadow: inset 0px 1px 3px 0px #d8e6e4;
+  width: 100%;
+  background: #009ae4 100%;
+  border-radius: 5px;
+  border: 1px solid #99a6a2;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 11px 23px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #c9d4d2;
+  margin-top: 10px;
+}
+
+.myButton:hover {
+  background: #38beff 50%;
+  color: #5e5e5e;
+}
+
+.myButton:active {
+  position: relative;
+  top: 3px;
+}
