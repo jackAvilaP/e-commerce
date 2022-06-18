@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useState } from 'react';
 import axios from 'axios';
-import { Cards } from '../components';
+import { Cards, Filter } from '../components';
 
 import '../styles/Home.css';
 
@@ -16,6 +16,7 @@ const Home = () => {
 
     return (
         <div className='home'>
+           <Filter/>
             <section className="home-products">
                 {
                     products.map((product) => (
