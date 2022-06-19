@@ -1,3 +1,9 @@
+.container-home{
+            
+}
+.SearchBar { grid-area: SearchBar;}
+.Filter {grid-area: Filter;}
+
 .home {
     display: flex;
 }

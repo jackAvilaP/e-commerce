@@ -1,30 +1,37 @@
-.accordion input{
-    margin-top: 2rem;
-    height: 2rem;
+.accordion input {
+  margin-top: 2rem;
+  height: 2rem;
 }
-.accordion button{
-    margin-top: 2rem;
-    border: none;
-    background-color: #009ae4;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
-    color: #fff;
-    display: block;
-    margin: 25px 0 20px auto;
-    padding: 8px 15px;
+.accordion button {
+  margin-top: 2rem;
+  border: none;
+  background-color: #009ae4;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  margin: 25px 0 20px auto;
+  padding: 8px 15px;
+}
 
+.accordion .price {
+    margin-bottom: 50px;
+}
+
+.accordion section ul {
+  display: flex;
+  margin-top: 10px;
 }
 
 details {
-    cursor: pointer;
-    padding: 0.5rem;
-    margin:0;
-    width: 200px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 10px;
+  width: 200px;
 }
 summary {
-    list-style: none;
-    padding-right: 9rem;
-    border-bottom: 1px solid gray;
+  list-style: none;
+  padding-right: 9rem;
+  border-bottom: 1px solid gray;
 }
-

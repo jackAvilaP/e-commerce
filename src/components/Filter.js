@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import React, { useId, useState } from 'react';
+
 import '../styles/Filter.css';
-import axios from 'axios';
+
 
 /*categorys.map((category) =>(
   <li>
@@ -9,19 +10,13 @@ import axios from 'axios';
   </li>
 ))*/
 
-const Filter = () => {
-  const [categorys, setCategorys] = useState({})
 
-  useEffect(() => {
-    axios
-      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`)
-      .then((res) => setCategorys(res.data.data.categories));
-  }, [])
- 
+const Filter = ({categories}) => {
+  const [categoryid, setId] = useState(0);
   return (
     <div className='accordion'>
-      <details>
-        <summary>Price</summary>
+      <details className='price' open>
+        <summary ><h2>Price</h2></summary>
         <section>
           <div>
             <input type='number' placeholder='Form'/>
@@ -30,11 +25,15 @@ const Filter = () => {
           <button>filter price</button>
         </section>
       </details>
-      <details>
-        <summary>Category</summary>
+      <details className='category' open>
+        <summary><h2>Category</h2></summary>
         <section>
           {
-
+            categories.map((category) =>(
+                  <ul  key={category.name} onClick={()=>setId(category.id)}>
+                    {category.name}
+                  </ul>
+             ))
           }
         </section>
       </details>

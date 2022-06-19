@@ -1,15 +1,12 @@
 import React from 'react';
-import { Login, CheckIn, SearchBar } from './components';
-
-
+import Routers from './routers/Routers'; 
 import './App.css';
-import { Home } from './pages';
+
 
 function App() {
   return (
     <div className="App">
-      <SearchBar />
-      <Home/>
+      <Routers/>
     </div>
   );
 }
