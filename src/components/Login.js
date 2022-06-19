@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Login.css';
 import { useForm } from '../Hooks/useForm';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -28,6 +29,8 @@ const Login = () => {
           </div>
         </form>
         <button className='myButton' onClick={onResetForm}> Submit</button>
+        <p>Don't have an account? <Link to='/checkin'>Sign up</Link></p>
+
       </div>
     </div>
   );

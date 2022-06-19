@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import React, { useEffect, useId, useState } from "react";
 import axios from "axios";
 import { Cards, Filter, SearchBar } from "../components";
@@ -7,6 +8,7 @@ import "../styles/Home.css";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const counter = useSelector(state => state.counter);
   const id = useId();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const Home = () => {
     <div className="container-home">
       <SearchBar className='SearchBar' />
       <div className="home">
-        <Filter categories={categories} className='Filter'/>
+        <Filter categories={categories} className='Filter' />
         <section className="home-products">
           {products.map((product) => (
             <Cards product={product} key={id + product.id} />

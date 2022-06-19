@@ -11,7 +11,7 @@ const Cards = ({ product }) => {
 
         <li>
             <div className='image'>
-                <img src={product.productImgs[0]} />
+                <img src={product.productImgs[0]} alt="product" />
             </div>
             <div className="info">
                 <h5>{product.title}</h5>
