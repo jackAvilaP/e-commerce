@@ -17,11 +17,13 @@ const Filter = () => {
     formValue: "",
     toValue: "",
   });
+  
+  const filterSearch = () => {
+    const result = products.filter((product) => (product.price > parseInt(formstate.toValue)) && (product.price < parseInt(formstate.formValue)));
+    dispatch(setProducts(result));
+  };
 
-  const result = products.filter(
-    (product) => product.price < 800 && product.price > 500
-  );
-  console.log(formstate);
+
   useEffect(() => {
     axios
       .get(
@@ -69,7 +71,7 @@ const Filter = () => {
               value={toValue}
             />
           </div>
-          <button>filter price</button>
+          <button onClick={filterSearch}>filter price</button>
         </section>
       </details>
       <details className="category" open>
