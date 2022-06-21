@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/NavBar.css";
 import { useNavigate } from "react-router-dom";
 import { setIsOpen } from "../store/slices/viewCartList.slice";
+
 import {
   faCartShopping,
   faStore,
@@ -18,6 +19,19 @@ const NavBar = () => {
 
   const toggles = useSelector((state) => state.isOpen);
 
+  const openListCarts = () => {
+    if (localStorage.getItem("token")) {
+      dispatch(setIsOpen(!toggles));
+    } else {
+      dispatch(setIsOpen(false));
+      navigate("/login");
+    }
+  }
+  const submit = () => {
+    
+    navigate("/purchase");
+  };
+
   return (
     <div className="navbar">
       <div className="fixed">
@@ -28,12 +42,12 @@ const NavBar = () => {
           <button className="icon" onClick={() => navigate("/login")}>
             <FontAwesomeIcon className="FontAwesomeIcon" icon={faUser} />
           </button>
-          <button className="icon">
+          <button className="icon" onClick={submit}>
             <FontAwesomeIcon className="FontAwesomeIcon" icon={faStore} />
           </button>
           <button
             className="icon"
-            onClick={() => dispatch(setIsOpen(!toggles))}
+            onClick={openListCarts}
           >
             <FontAwesomeIcon
               className="FontAwesomeIcon"

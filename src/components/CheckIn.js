@@ -2,56 +2,41 @@ import React from "react";
 import { useForm } from "../Hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import "../styles/CheckIn.css";
+import { useDispatch } from "react-redux";
+import { checkIn } from "../store/slices/login.slice";
 
 const CheckIn = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
     formstate,
-    onResetForm,
     onInputChage,
-    fullname,
-    username,
+    firstName,
+    lastName,
     email,
     password,
+    phone,
+
   } = useForm({
-    fullname: "",
-    username: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
+    phone: ""
   });
+
   const checkInAdd = (e) => {
     e.preventDefault();
-    onResetForm();
-    navigate("/login");
+    dispatch(checkIn(formstate))
+      .then(res => console.log(res));
+    //navigate("/login");
   };
   return (
     <div className="container-CheckIn">
       <div className="CheckIn-box">
         <h1>Check in</h1>
         <form>
-          <div className="CheckInUser-box">
-            <input
-              type="text"
-              name="fullname"
-              onChange={onInputChage}
-              value={fullname}
-              required
-            />
-            <label>full Name </label>
-          </div>
-
-          <div className="CheckInUser-box">
-            <input
-              type="text"
-              name="username"
-              onChange={onInputChage}
-              value={username}
-              required
-            />
-            <label>User </label>
-          </div>
-
           <div className="CheckInUser-box">
             <input
               type="email"
@@ -65,6 +50,28 @@ const CheckIn = () => {
 
           <div className="CheckInUser-box">
             <input
+              type="text"
+              name="firstName"
+              onChange={onInputChage}
+              value={firstName}
+              required
+            />
+            <label>First Name </label>
+          </div>
+
+          <div className="CheckInUser-box">
+            <input
+              type="text"
+              name="lastName"
+              onChange={onInputChage}
+              value={lastName}
+              required
+            />
+            <label>Last name </label>
+          </div>
+
+          <div className="CheckInUser-box">
+            <input
               id="password"
               type="password"
               name="password"
@@ -74,6 +81,18 @@ const CheckIn = () => {
             />
             <label>Password </label>
           </div>
+
+          <div className="CheckInUser-box">
+            <input
+              type="text"
+              name="phone"
+              onChange={onInputChage}
+              value={phone}
+              required
+            />
+            <label>Phone </label>
+          </div>
+
         </form>
         <button className="myButton" onClick={checkInAdd}>
           Register

@@ -1,10 +1,13 @@
+.container-CheckIn{
+  display: flex;
+}
 .CheckIn-box{
   position: absolute;
   top: 55%;
   left: 50%;
   width: 400px;
-  height: 573px;
-  padding: 35px;
+  height: 565px;
+  padding: 30px;
   transform: translate(-50%, -50%);
   background: #fff;
   box-sizing: border-box;
@@ -14,22 +17,22 @@
 
   
   .CheckIn-box h1 {
-    margin: 0 0 20px;
+    margin: 0 0 10px 0;
     padding: 0;
-    color: #515151;
+    color: #009ae4;
     text-align: center;
   }
 
   .CheckIn-box .CheckInUser-box {
     position: relative;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   
   .CheckIn-box .CheckInUser-box input {
     width: 100%;
     padding: 8px 0;
     font-size: 16px;
-    color: #fff;
+    color: #515151;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #515151;
