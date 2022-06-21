@@ -30,7 +30,7 @@ const CheckIn = () => {
     e.preventDefault();
     dispatch(checkIn(formstate))
       .then(res => console.log(res));
-    //navigate("/login");
+    navigate("/login");
   };
   return (
     <div className="container-CheckIn">

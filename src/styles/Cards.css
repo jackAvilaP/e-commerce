@@ -6,8 +6,11 @@ li {
     margin: 20px;
     height: 420px;
     width: 250px;
+    
 }
-
+.shipping {
+    color: #00a650;
+}
 .image {
     align-items: center;
     border-bottom: 1px solid #dcd9d9;
