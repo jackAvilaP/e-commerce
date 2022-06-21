@@ -1,15 +1,15 @@
 .CheckIn-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    height: 700px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  width: 400px;
+  height: 573px;
+  padding: 35px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgb(0 0 0 / 40%);
+  border-radius: 10px;
   }
 
   
@@ -30,7 +30,7 @@
     padding: 8px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 55px;
+    margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #515151;
     margin-top: 10px;

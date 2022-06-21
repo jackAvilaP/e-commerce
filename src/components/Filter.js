@@ -1,9 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import { useForm } from "../Hooks/useForm";
-import { setCategorys } from "../store/slices/category.slice";
-import { setProducts } from "../store/slices/products.slice";
+import { getCategorys } from "../store/slices/category.slice";
+import {
+  categorysId,
+  getProducts,
+  filterProductsValue,
+} from "../store/slices/products.slice";
 
 import "../styles/Filter.css";
 
@@ -13,36 +17,29 @@ const Filter = () => {
   const products = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const { formstate, onResetForm, onInputChage, formValue, toValue } = useForm({
+  const { formstate, onInputChage, formValue, toValue } = useForm({
     formValue: "",
     toValue: "",
   });
-  
-  const filterSearch = () => {
-    const result = products.filter((product) => (product.price > parseInt(formstate.toValue)) && (product.price < parseInt(formstate.formValue)));
-    dispatch(setProducts(result));
+
+  const filterSearch = (e) => {
+    e.preventDefault();
+    if (formstate.formValue !== "" && formstate.formstate !== "") {
+      dispatch(filterProductsValue(formstate, products));
+    } else {
+      dispatch(getProducts());
+    }
   };
 
-
   useEffect(() => {
-    axios
-      .get(
-        `https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`
-      )
-      .then((res) => dispatch(setCategorys(res.data.data.categories)));
+    dispatch(getCategorys());
   }, []);
 
   useEffect(() => {
     if (categoryid !== 0) {
-      axios
-        .get(
-          `https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${categoryid}`
-        )
-        .then((res) => dispatch(setProducts(res.data.data.products)));
+      dispatch(categorysId(categoryid));
     } else if (categoryid === 0) {
-      axios
-        .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
-        .then((res) => dispatch(setProducts(res.data.data.products)));
+      dispatch(getProducts());
     }
   }, [categoryid]);
 

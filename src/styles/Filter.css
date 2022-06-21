@@ -15,8 +15,18 @@
   padding: 8px 15px;
 }
 
+.accordion button:hover {
+  background: #38beff 50%;
+  color: #5e5e5e;
+}
+
+.accordion button:active {
+  position: relative;
+  top: 3px;
+}
+
 .accordion .price {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .accordion section ul {
