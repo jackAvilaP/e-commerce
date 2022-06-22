@@ -24,6 +24,8 @@ export const getProducts = () => (dispatch) => {
     .finally(() => dispatch(setIsLoading(false)));
 };
 
+
+
 export const searchTitle = (title) => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios

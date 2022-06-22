@@ -29,7 +29,7 @@ const NavBar = () => {
   }
   const submit = () => {
     
-    navigate("/purchase");
+    navigate("/purchases");
   };
 
   return (
