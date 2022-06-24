@@ -17,9 +17,10 @@ const Routers = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/checkin" element={<CheckIn />} />
-        <Route path="/purchases" element={<Purchases />} />
         <Route path="/details/:id" element={<ProductDetails />} />
-        <Route element={<ProtectedRoutes />}></Route>
+        <Route element={<ProtectedRoutes />}>
+        <Route path="/purchases" element={<Purchases />} />
+        </Route>
       </Routes>
     </HashRouter>
   );

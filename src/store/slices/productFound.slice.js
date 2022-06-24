@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setIsLoading } from "./isLoading.slice";
+
 
 export const productFoundSlice = createSlice({
   name: "productFound",
-  initialState: {},
+  initialState: [],
   reducers: {
     setproductFound: (state, action) =>  action.payload,
   },

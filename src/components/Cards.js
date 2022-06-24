@@ -3,12 +3,18 @@ import "../styles/Cards.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import { setproductFound } from "../store/slices/productFound.slice";
+import { useDispatch } from "react-redux";
 
 const Cards = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const clickDetail = (id) => {
+    dispatch(setproductFound(product));
     navigate(`/details/${id}`);
   };
+  
   return (
     <li onClick={()=>clickDetail(product.id)}>
       <div className="image">

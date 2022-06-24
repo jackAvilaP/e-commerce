@@ -18,8 +18,10 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    dispatch(loginUser(formstate))
-      .then(res =>  localStorage.setItem("token", res.data.data.token));
+    if (!formstate) {
+      dispatch(loginUser(formstate))
+        .then(res => localStorage.setItem("token", res.data.data.token));
+    }
     navigate("/");
   }
 
