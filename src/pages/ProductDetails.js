@@ -1,62 +1,38 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState} from "react";
 import "../styles/ProductDetails.css";
 
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  foundProductById,
-  setproductFound,
-} from "../store/slices/productFound.slice";
-import { getProducts } from "../store/slices/products.slice";
+
 import axios from "axios";
+import SpinnerLoading from "../components/SpinnerLoading";
+
 
 const ProductDetails = () => {
-  const found = useSelector((state) => state.productFound);
-
-  const dispatch = useDispatch();
+  const [store, setStore] = useState([])
   const { id } = useParams();
-  const [memo, setMemo] = useState([]);
 
-  const foundPro = useCallback(() => {
-    axios
-      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
-      .then((res) => {
-        const newFoundProduct = res.data.data.products.find(
+  useEffect(() => {
+    const odtenerProducto = async () => {
+      const result = await axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
+      
+        setStore( result.data.data.products.find(
           (newProduct) => newProduct.id === Number(id)
-        );
-        
-      });
+        ))
+    };
+    odtenerProducto()
   }, [id]);
-  {
-    /*
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
-  useEffect(() => {
-    dispatch(foundProductById(id));
-  }, [dispatch, id]);*/
-  }
-  if(found){
-    console.log("first")
-  }else{
-    console.log("one")
-  }
+ 
   return (
     <div className="container-details">
       <section id="flexbox-direction-img">
-       {/* <img src={found.productImgs[0]} alt="product-img" />
 
-        <div className="flexbox-miniImg">
-          {
-            found.productImgs.map((productImg, i) => (
-              <img
-                src={productImg}
-                className="imgDetailSmall"
-              // onClick={() => setNumberImg(i)}
-              />
-            ))
-          }
-        </div> */}
+        {
+          store.length === 0 ? <SpinnerLoading/> : 
+            <div className="img-details">
+              <img  src={store.productImgs[0]} alt="product-img" />
+            </div>
+        }
+        
       </section>
     </div>
   );

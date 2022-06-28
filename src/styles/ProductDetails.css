@@ -5,3 +5,6 @@
   justify-content: center;
   flex-direction: column;
 }
+.img-details img {
+  background-color: blue;
+}
