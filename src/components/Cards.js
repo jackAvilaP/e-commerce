@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "../styles/Cards.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { setproductFound } from "../store/slices/productFound.slice";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const Cards = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const clickDetail = (id) => {
-    dispatch(setproductFound(product));
+    foundPro (id);
     navigate(`/details/${id}`);
   };
+  const foundPro = useCallback((id) => {
+    axios
+      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
+      .then((res) => {
+        const newFoundProduct = res.data.data.products.find(
+          (newProduct) => newProduct.id === Number(id)
+        );
+         dispatch(setproductFound(newFoundProduct));
+      });
+  }, [dispatch]);
   
   return (
     <li onClick={()=>clickDetail(product.id)}>

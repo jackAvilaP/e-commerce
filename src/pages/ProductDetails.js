@@ -1,34 +1,52 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "../styles/ProductDetails.css";
 
-function ProductDetails() {
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  foundProductById,
+  setproductFound,
+} from "../store/slices/productFound.slice";
+import { getProducts } from "../store/slices/products.slice";
+import axios from "axios";
+
+const ProductDetails = () => {
   const found = useSelector((state) => state.productFound);
-  const products = useSelector((state) => state.products);
-  const { id } = useParams();
+
   const dispatch = useDispatch();
-  const [productFound, setProductFound] = useState({})
+  const { id } = useParams();
+  const [memo, setMemo] = useState([]);
 
-  useEffect(() => {
+  const foundPro = useCallback(() => {
     axios
-      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
+      .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products`)
       .then((res) => {
-       // const newFoundProduct = res.data.data.products.find(newProduct => newProduct.id === Number(id));
-        //console.log(newFoundProduct.category.id);
-        setProductFound(res.data);
+        const newFoundProduct = res.data.data.products.find(
+          (newProduct) => newProduct.id === Number(id)
+        );
+        
       });
-    //dispatch(foundProductById(id));
+  }, [id]);
+  {
+    /*
+  useEffect(() => {
+    dispatch(getProducts());
   }, []);
-
+  useEffect(() => {
+    dispatch(foundProductById(id));
+  }, [dispatch, id]);*/
+  }
+  if(found){
+    console.log("first")
+  }else{
+    console.log("one")
+  }
   return (
     <div className="container-details">
       <section id="flexbox-direction-img">
-        <img src={found.productImgs[0]} alt="product" />
-       
-        {/* <div className="flexbox-miniImg">
+       {/* <img src={found.productImgs[0]} alt="product-img" />
+
+        <div className="flexbox-miniImg">
           {
             found.productImgs.map((productImg, i) => (
               <img
@@ -42,6 +60,6 @@ function ProductDetails() {
       </section>
     </div>
   );
-}
+};
 
 export default ProductDetails;
