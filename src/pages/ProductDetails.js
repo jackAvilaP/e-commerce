@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/ProductDetails.css";
 
 import { useParams } from "react-router-dom";
@@ -13,7 +15,6 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
-  const [categoryid, setId] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -40,17 +41,30 @@ const ProductDetails = () => {
           ) : (
             <div className="img-details">
               <div className="container-flex-info">
-                <div className="containerImg-big">
+                <section className="containerImg-big">
                   <img
                     src={store.productImgs[0]}
                     alt="product-img"
                     id="img-big"
                   />
-                </div>
-                <div className="product-info">
+                </section>
+                <section className="product-info">
                   <h2>{store.title}</h2>
                   <p>{store.description}</p>
-                </div>
+                  <div className="product-info-purchase">
+                    <div className="product-info-price">
+                      <p>Price:{store.price}</p>
+                     <button>-</button><input type="number" /><button>+</button>
+                    </div>
+                    <button className="button-buy">
+                      Add cart{" "}
+                      <FontAwesomeIcon
+                        className="FontAwesomeIcon"
+                        icon={faCartShopping}
+                      />
+                    </button>
+                  </div>
+                </section>
               </div>
               <div className="card-category">
                 {products.map((product) => (

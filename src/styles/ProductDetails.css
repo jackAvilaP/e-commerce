@@ -19,6 +19,18 @@
   padding: 50px;
 }
 
+.button-buy {
+  background: #009ae4 100%;
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
 .img-details .card-category {
   display: flex;
   justify-content: center;
@@ -33,4 +45,10 @@
 .product-info {
   padding: 50px;
   width: 50%;
+}
+.product-info-purchase{
+  margin-top: 30px;
+}
+.product-info-purchase .product-info-price{
+  
 }
