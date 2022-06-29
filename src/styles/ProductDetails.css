@@ -5,6 +5,32 @@
   justify-content: center;
   flex-direction: column;
 }
-.img-details img {
-  background-color: blue;
+.img-details .containerImg-big {
+  height: 300px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.img-details #img-big {
+  height: 300px;
+  padding: 50px;
+}
+
+.img-details .card-category {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.img-details .container-flex-info {
+  display: flex;
+  
+}
+
+.product-info {
+  padding: 50px;
+  width: 50%;
 }
