@@ -11,14 +11,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .img-details #img-big {
   height: 300px;
   padding: 50px;
 }
-
+.img-details #img-small {
+  height: 70px;
+  padding: 10px;
+}
 .button-buy {
   background: #009ae4 100%;
   color: #fff;
@@ -39,16 +42,18 @@
 }
 .img-details .container-flex-info {
   display: flex;
-  
 }
 
 .product-info {
   padding: 50px;
   width: 50%;
 }
-.product-info-purchase{
+.product-info-purchase {
   margin-top: 30px;
 }
-.product-info-purchase .product-info-price{
-  
+.product-info-purchase .product-info-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 0 20px 0;
 }

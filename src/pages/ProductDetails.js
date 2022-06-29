@@ -15,6 +15,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
+  const [price, setPrice] = useState(1);
+  const [imgId, setImgId] = useState(0)
   const { id } = useParams();
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const ProductDetails = () => {
     };
     odtenerProducto();
   }, [id, dispatch]);
-  console.log(store);
+
   return (
     <div className="container-details">
       <section id="flexbox-direction-img">
@@ -47,14 +49,27 @@ const ProductDetails = () => {
                     alt="product-img"
                     id="img-big"
                   />
+                  <div>
+                    {store.productImgs.map((img,i) => (
+                      <img src={img} alt="product-img" id="img-small" />
+                    ))}
+                  </div>
                 </section>
                 <section className="product-info">
                   <h2>{store.title}</h2>
                   <p>{store.description}</p>
                   <div className="product-info-purchase">
                     <div className="product-info-price">
-                      <p>Price:{store.price}</p>
-                     <button>-</button><input type="number" /><button>+</button>
+                      <div>
+                        <p>Price:</p>
+                        <p>{store.price}</p>
+                      </div>
+                      <div>
+                        <p>Quantity:</p>
+                        <button>-</button>
+                        <input type="number" value={price} />
+                        <button>+</button>
+                      </div>
                     </div>
                     <button className="button-buy">
                       Add cart{" "}
