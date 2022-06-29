@@ -6,21 +6,38 @@
   flex-direction: column;
 }
 .img-details .containerImg-big {
-  height: 300px;
-  width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 1184px;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+.img-details .containerImg-big .containerImgs-small {
+  display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .img-details #img-big {
-  height: 300px;
-  padding: 50px;
+
+  height: 390px;
+  cursor: pointer;
+  transition: 1s;
 }
 .img-details #img-small {
-  height: 70px;
-  padding: 10px;
+
+  height: 50px;
+  margin: 10px;
+  opacity: 0.4;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.img-details #img-small:hover {
+  opacity: 1;
 }
 .button-buy {
   background: #009ae4 100%;
@@ -42,18 +59,65 @@
 }
 .img-details .container-flex-info {
   display: flex;
+  justify-content: center;
+  margin: 0 40px;
 }
-
+.img-details strong {
+  text-align: justify;
+  color: #009ae4;
+  display: block;
+  font-size: 1.2rem;
+  margin: 20px 0 20px 70px;
+}
 .product-info {
-  padding: 50px;
-  width: 50%;
+  /* padding: 50px;
+  width: 50%;*/
+  padding: 20px;
+  display: grid;
+  grid-template-rows: auto auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 500px;
+}
+.product-info h2 {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.product-info p {
+  text-align: left;
 }
 .product-info-purchase {
   margin-top: 30px;
+  height: 150px;
 }
 .product-info-purchase .product-info-price {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 20px 0 20px 0;
+}
+div .price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-left: 5px;
+}
+div label {
+  color: #a3a3a3;
+}
+.price,
+.button-counter {
+  width: 30px;
+  height: 26px;
+  margin: 10px 3px;
+}
+div input {
+  width: 50px;
+  padding: 0 20px;
+  height: 26px;
+}
+div input[type="number"]::-webkit-inner-spin-button,
+div input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+  -moz-appearance: textfield !important;
 }

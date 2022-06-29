@@ -15,8 +15,9 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
-  const [price, setPrice] = useState(1);
-  const [imgId, setImgId] = useState(0)
+  //const [price, setPrice] = useState(1);
+
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -44,15 +45,17 @@ const ProductDetails = () => {
             <div className="img-details">
               <div className="container-flex-info">
                 <section className="containerImg-big">
-                  <img
-                    src={store.productImgs[0]}
-                    alt="product-img"
-                    id="img-big"
-                  />
-                  <div>
-                    {store.productImgs.map((img,i) => (
-                      <img src={img} alt="product-img" id="img-small" />
+                  <div className="containerImgs-small">
+                    {store.productImgs.map((img) => (
+                      <img src={img} alt="product-img" id="img-small" key={img} />
                     ))}
+                  </div>
+                  <div>
+                    <img
+                      src={store.productImgs[0]}
+                      alt="product-img"
+                      id="img-big"
+                    />
                   </div>
                 </section>
                 <section className="product-info">
@@ -61,14 +64,17 @@ const ProductDetails = () => {
                   <div className="product-info-purchase">
                     <div className="product-info-price">
                       <div>
-                        <p>Price:</p>
-                        <p>{store.price}</p>
+                        <label>Price:</label>
+                        <p className="price">${store.price}</p>
                       </div>
                       <div>
-                        <p>Quantity:</p>
-                        <button>-</button>
-                        <input type="number" value={price} />
-                        <button>+</button>
+                        <label>Quantity:</label>
+                        <div>
+
+                          <button className="button-counter">-</button>
+                          <input type="number" />
+                          <button className="button-counter">+</button>
+                        </div>
                       </div>
                     </div>
                     <button className="button-buy">
@@ -81,9 +87,10 @@ const ProductDetails = () => {
                   </div>
                 </section>
               </div>
+              <strong>Discover similar items</strong>
               <div className="card-category">
-                {products.map((product) => (
-                  <Cards product={product} key={id + product.id} />
+                {products.map((product, i) => (
+                  <Cards product={product} key={i.toString()} />
                 ))}
               </div>
             </div>

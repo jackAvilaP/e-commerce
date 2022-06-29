@@ -15,16 +15,16 @@
     border: 1px solid #dcd9d9;
     flex: 1 1;
     font-size: 18px;
-    padding: 5px 14px;
+    padding: 19px 14px;
 }
 
-.form-search button{
+.form-search button {
     border: none;
     width: 70px;
     height: 40px;
     cursor: pointer;
     background-color: #009ae4;
 }
-.form-search button #iconGlass{
+.form-search button #iconGlass {
     font-size: 20px;
 }
