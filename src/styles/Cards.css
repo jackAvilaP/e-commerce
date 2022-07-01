@@ -1,49 +1,58 @@
 li {
-    list-style: none;
-    margin-left: 20px;
-    border: 1px solid #dcd9d9;
-    border-radius: 10px;
-    margin: 20px;
-    height: 420px;
-    width: 250px;
-    cursor: pointer;
-    
+  list-style: none;
+  margin-left: 20px;
+  border: 1px solid #dcd9d9;
+  border-radius: 10px;
+  margin: 20px;
+  height: 420px;
+  width: 250px;
+  
 }
 .shipping {
-    color: #00a650;
+  color: #00a650;
 }
 .image {
-    align-items: center;
-    border-bottom: 1px solid #dcd9d9;
-    display: flex;
-    height: 250px;
-    justify-content: center;
-    position: relative;
+  align-items: center;
+  border-bottom: 1px solid #dcd9d9;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
 }
 
 .image img {
-    display: block;
-    height: 80%;
-    margin: 0 auto;
-    object-fit: contain;
-    width: 80%;
+  display: block;
+  height: 80%;
+  margin: 0 auto;
+  object-fit: contain;
+  width: 80%;
 }
 li .info {
-    padding: 20px 20px 30px;
+  padding: 20px 20px 30px;
 }
 li h5 {
-    padding: 5px;
+  padding: 5px;
 }
 li button {
-    width: 50px;
-    height: 50px;
-    border: none;
-    background-color: #009ae4;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #009ae4;
+  border-radius: 50%;
 }
+li button:hover {
+  background: #38beff 50%;
+  color: #5e5e5e;
+}
+li button:active {
+  position: relative;
+  top: 3px;
+}
+
 li .prices-pruducts {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-top: 10px;
 }

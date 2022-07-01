@@ -22,14 +22,16 @@
   align-items: center;
 }
 
-.img-details #img-big {
+section .imgBig {
+  width: 624px;
+}
 
+.img-details #img-big {
   height: 390px;
   cursor: pointer;
   transition: 1s;
 }
 .img-details #img-small {
-
   height: 50px;
   margin: 10px;
   opacity: 0.4;
@@ -110,8 +112,25 @@ div label {
   height: 26px;
   margin: 10px 3px;
 }
+
+.button-counter {
+  background: #009ae4;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-counter:active {
+  position: relative;
+  top: 3px;
+}
+
+.button-counter:hover {
+  background: #38beff 50%;
+  color: #5e5e5e;
+}
 div input {
-  width: 50px;
+  width: 60px;
   padding: 0 20px;
   height: 26px;
 }

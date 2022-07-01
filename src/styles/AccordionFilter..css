@@ -68,19 +68,9 @@ section .price-input input {
     margin-bottom: 50px;
   }
   
-  .accordion section ul {
+  .accordion .accordion-content ul {
     display: flex;
     margin-top: 10px;
+    cursor: pointer;
   }
   
-  details {
-    cursor: pointer;
-    padding: 0.5rem;
-    margin-right: 10px;
-    width: 230px;
-  }
-  summary {
-    list-style: none;
-    padding-right: 9rem;
-    border-bottom: 1px solid gray;
-  }

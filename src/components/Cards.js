@@ -15,8 +15,8 @@ const Cards = ({ product }) => {
 
  
   return (
-    <li onClick={()=>clickDetail(product.id)}>
-      <div className="image">
+    <li>
+      <div className="image"  onClick={()=>clickDetail(product.id)}>
         <img src={product.productImgs[0]} alt="product" />
       </div>
       <div className="info">

@@ -15,9 +15,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
-  //const [price, setPrice] = useState(1);
-
-
+  const [imgId, setImgId] = useState(0);
+  const [counter, setCounter] = useState(1);
   const { id } = useParams();
 
   useEffect(() => {
@@ -46,13 +45,21 @@ const ProductDetails = () => {
               <div className="container-flex-info">
                 <section className="containerImg-big">
                   <div className="containerImgs-small">
-                    {store.productImgs.map((img) => (
-                      <img src={img} alt="product-img" id="img-small" key={img} />
+                    {store.productImgs.map((img, i) => (
+                      <img
+                        src={img}
+                        alt="product-img"
+                        id="img-small"
+                        key={img}
+                        onClick={() => {
+                          setImgId(i);
+                        }}
+                      />
                     ))}
                   </div>
-                  <div>
+                  <div className="imgBig">
                     <img
-                      src={store.productImgs[0]}
+                      src={store.productImgs[imgId]}
                       alt="product-img"
                       id="img-big"
                     />
@@ -70,10 +77,25 @@ const ProductDetails = () => {
                       <div>
                         <label>Quantity:</label>
                         <div>
-
-                          <button className="button-counter">-</button>
-                          <input type="number" />
-                          <button className="button-counter">+</button>
+                          <button
+                            className="button-counter"
+                            onClick={() =>counter>1 && setCounter(counter - 1)}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            id="amount"
+                            name="amount"
+                            onChange={(e) => setCounter(e.target.value)}
+                            value={counter}
+                          />
+                          <button
+                            className="button-counter"
+                            onClick={() => setCounter(counter + 1)}
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </div>
