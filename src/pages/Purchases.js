@@ -1,5 +1,4 @@
 import React from 'react';
-import { LogOut } from '../components';
 
 
 import "../styles/Purchases.css";

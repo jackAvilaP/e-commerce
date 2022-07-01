@@ -24,7 +24,7 @@ const NavBar = () => {
       dispatch(setIsOpen(!toggles));
     } else {
       dispatch(setIsOpen(false));
-      navigate("/login");
+      navigate("/user");
     }
   }
 
