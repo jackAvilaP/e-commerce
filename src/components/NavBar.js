@@ -18,7 +18,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const toggles = useSelector((state) => state.isOpen);
-
+  
   const openListCarts = () => {
     if (localStorage.getItem("token")) {
       dispatch(setIsOpen(!toggles));
@@ -27,8 +27,9 @@ const NavBar = () => {
       navigate("/login");
     }
   }
+
+  
   const submit = () => {
-    
     navigate("/purchases");
   };
 
@@ -39,7 +40,7 @@ const NavBar = () => {
           <div className="title">
             <strong onClick={() => navigate("/")}>e-commerce</strong>
           </div>
-          <button className="icon" onClick={() => navigate("/login")}>
+          <button className="icon" onClick={() => navigate("/user")}>
             <FontAwesomeIcon className="FontAwesomeIcon" icon={faUser} />
           </button>
           <button className="icon" onClick={submit}>

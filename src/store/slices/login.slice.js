@@ -22,7 +22,7 @@ export const checkIn = (formstate) => (dispatch) => {
         .post(
             "https://ecommerce-api-react.herokuapp.com/api/v1/users",
             formstate
-        )
+        ).then(res => console.log("first"))
         .catch(error => {
             if (error.response.status === 401 || error.response.status === 404 || error.response.status === 400) {
                 alert(error.response.data.message)
@@ -37,7 +37,11 @@ export const loginUser = (formstate) => (dispatch) => {
         .post(
             "https://ecommerce-api-react.herokuapp.com/api/v1/users/login",
             formstate
-        )
+        ).then(res => {
+            localStorage.setItem("user", res.data.data.user.firstName);
+            localStorage.setItem("token", res.data.data.token);
+            console.log(res.data.data.user.firstName);
+        })
         .catch(error => {
             if (error.response.status === 401 || error.response.status === 404) {
                 alert(error.response.data.message)
@@ -47,10 +51,14 @@ export const loginUser = (formstate) => (dispatch) => {
 }
 
 export const getCartList = () => (dispatch) => {
-    dispatch(setIsLoading(true));
     return axios
         .get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig())
-        .then((res) => dispatch(setCart(res.data.data.cart.products)));
+        .then((res) => dispatch(setCart(res.data.data.cart.products)))
+        .catch(error => {
+            if (error.response.status === 401 || error.response.status === 404) {
+                alert(error.response.data.message)
+            }
+        });
 }
 
 export default loginSlice.reducer;

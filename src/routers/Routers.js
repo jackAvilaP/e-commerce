@@ -1,8 +1,8 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Login, NavBar, CheckIn } from "../components";
-import { Home, ProductDetails, Purchases } from "../pages";
+import { NavBar, CheckIn } from "../components";
+import { Home, ProductDetails, Purchases, User } from "../pages";
 import SpinnerLoading from "../components/SpinnerLoading";
 import ProtectedRoutes from "./ProtectedRoutes";
 
@@ -15,11 +15,11 @@ const Routers = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/checkin" element={<CheckIn />} />
+        <Route path="/user" element={<User />} />
         <Route path="/details/:id" element={<ProductDetails />} />
         <Route element={<ProtectedRoutes />}>
-        <Route path="/purchases" element={<Purchases />} />
+          <Route path="/purchases" element={<Purchases />} />
         </Route>
       </Routes>
     </HashRouter>

@@ -5,4 +5,5 @@ export { default as Filter } from "./Filter";
 export { default as Login } from "./Login";
 export { default as CheckIn } from "./CheckIn";
 export { default as CartsList } from "./CartsList";
+export { default as LogOut} from "./LogOut";
 

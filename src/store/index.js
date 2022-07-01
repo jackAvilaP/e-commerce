@@ -13,5 +13,5 @@ export default configureStore({
     isOpen,
     cartUser,
     isLoading
-  }
+   }
 });

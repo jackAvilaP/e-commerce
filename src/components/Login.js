@@ -16,13 +16,16 @@ const Login = () => {
       password: ""
     });
 
-  const submit = (e) => {
-    e.preventDefault();
-    if (!formstate) {
-      dispatch(loginUser(formstate))
-        .then(res => localStorage.setItem("token", res.data.data.token));
+  const submit = () => {
+
+    if (formstate.name === "" || formstate.password === "") {
+      //navigate("/");
+    } else {
+      dispatch(loginUser(formstate));
+      
+      navigate("/");
     }
-    navigate("/");
+
   }
 
 
@@ -43,8 +46,8 @@ const Login = () => {
         </form>
         <button className='myButton' onClick={submit} > Submit</button>
         <p>Don't have an account? <Link to='/checkin'>Sign up</Link></p>
-
       </div>
+
     </div>
   );
 };
