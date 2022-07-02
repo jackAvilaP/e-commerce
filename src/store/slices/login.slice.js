@@ -40,7 +40,6 @@ export const loginUser = (formstate) => (dispatch) => {
         ).then(res => {
             localStorage.setItem("user", res.data.data.user.firstName);
             localStorage.setItem("token", res.data.data.token);
-            console.log(res.data.data.user.firstName);
         })
         .catch(error => {
             if (error.response.status === 401 || error.response.status === 404) {
@@ -50,13 +49,14 @@ export const loginUser = (formstate) => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+
 export const getCartList = () => (dispatch) => {
     return axios
-        .get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig())
+        .get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig)
         .then((res) => dispatch(setCart(res.data.data.cart.products)))
         .catch(error => {
             if (error.response.status === 401 || error.response.status === 404) {
-                alert(error.response.data.message)
+                console.log(error.response.data.message)
             }
         });
 }

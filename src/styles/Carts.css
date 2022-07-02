@@ -10,6 +10,12 @@
   width: 300px;
   z-index: 9;
 }
+
+section .container-listCart{
+  border: none;
+  padding: 0;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
