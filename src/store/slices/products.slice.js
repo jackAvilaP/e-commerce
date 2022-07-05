@@ -4,9 +4,8 @@ import { setIsLoading } from "./isLoading.slice";
 
 import axios from "axios";
 
-// Cambiamos mySlice por el nombre de nuestro slice (usersSlice, toDosSlice...)
 export const productSlice = createSlice({
-  name: "product", // Cambialo por el nombre de tu slice
+  name: "product", 
   initialState: [],
   reducers: {
     setProducts: (state, action) => action.payload,

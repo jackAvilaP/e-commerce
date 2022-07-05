@@ -5,7 +5,26 @@
   margin: 0;
   padding: 0;
 }
+a:link, a:visited,  a:hover, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}
 
 .App {
   text-align: center;
+}
+
+
+footer {
+  background: #3c3c3b;
+  padding: 60px 0;
+}
+
+footer .copyright {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
 }

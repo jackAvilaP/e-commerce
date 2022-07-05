@@ -1,37 +1,54 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartList } from "../store/slices/login.slice";
+import { Link } from "react-router-dom";
+import { deletCartProduct, getCartList } from "../store/slices/login.slice";
 import "../styles/Carts.css";
 
 const CartsList = () => {
-  const dispatch = useDispatch();
   const toggles = useSelector((state) => state.isOpen);
-  const cart = useSelector((state) => state.cartUser);
+  const productCarts = useSelector((state) => state.cartUser);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
-    dispatch(getCartList())
-  },  [dispatch])
-  
+    if(localStorage.getItem("token")){
+      dispatch(getCartList());
+    }
+  }, [toggles]);
+
   return (
     <div>
       <section className={`cart-modal ${toggles && "open"}`}>
         <div className="cart">
           <div className="miniList-cart">
             <h1>Shopping cart</h1>
-            <section>
-             {
-              cart.map(productCart=>(
-
-                <div className="container-listCart" key={productCart.id + 998}>{productCart.brand}  {productCart.title}</div>
-              ))
-             }
-            </section>
+            {productCarts.map((pro) => (
+              <section key={pro.id} className="items-cart">
+                <section className="section-description">
+                  <span>{pro.brand}</span>
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    className="trash"
+                    onClick={() => dispatch(deletCartProduct(pro.id))}
+                  />
+                </section>
+                <div className="product-brand">
+                  <Link to={`/details/${pro.id}`}>{pro.title}</Link>
+                </div>
+                <section className="section-priceQuantity">
+                  <p className="quantity">{pro.productsInCart.quantity}</p>
+                  <p>${Number(pro.price) * pro.productsInCart.quantity}</p>
+                </section>
+              </section>
+            ))}
           </div>
           <div className="checkout">
-            <div className="total">
+            {/* <div className="total">
               <span className="label">Total: </span>
-              <b>$ 0</b>
-            </div>
+              <b>$ {total}</b>
+            </div>*/}
             <button className="button-buy">Checkout</button>
           </div>
         </div>

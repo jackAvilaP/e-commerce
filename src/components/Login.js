@@ -6,6 +6,7 @@ import '../styles/Login.css';
 import { useForm } from '../Hooks/useForm';
 import { loginUser } from '../store/slices/login.slice';
 
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Login = () => {
       //navigate("/");
     } else {
       dispatch(loginUser(formstate));
+
       navigate("/");
     }
 

@@ -1,10 +1,10 @@
 .container-logOut {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 8rem 0 5rem 0;
 }
 
 .container-logOut .logOut {

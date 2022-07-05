@@ -38,7 +38,7 @@ const NavBar = () => {
       <div className="fixed">
         <nav>
           <div className="title">
-            <strong onClick={() => navigate("/")}>e-commerce</strong>
+            <strong onClick={() => {navigate("/");dispatch(setIsOpen(false))}}>e-commerce</strong>
           </div>
           <button className="icon" onClick={() => navigate("/user")}>
             <FontAwesomeIcon className="FontAwesomeIcon" icon={faUser} />

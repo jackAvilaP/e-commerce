@@ -1,22 +1,22 @@
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import React from "react";
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useNavigate } from "react-router-dom";
-
-import "../styles/LogOut.css";
+import '../styles/LogOut.css';
 
 const LogOut = () => {
-  const navigate = useNavigate();
- 
-  const firstName = localStorage.getItem("user");
+    const navigate = useNavigate();
 
-  const outLogin = () => {
-    localStorage.setItem("token", "");
-    localStorage.setItem("user", "");
-    navigate("/");
-  };
+    const firstName = localStorage.getItem('user');
+
+    const outLogin = () => {
+        localStorage.setItem("token", "");
+        localStorage.setItem("user", "");
+        navigate("/");
+    };
+
 
 
   

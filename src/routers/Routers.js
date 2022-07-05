@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { NavBar, CheckIn } from "../components";
 import { Home, ProductDetails, Purchases, User } from "../pages";

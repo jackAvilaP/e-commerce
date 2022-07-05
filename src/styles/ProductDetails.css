@@ -10,7 +10,7 @@
   background: white;
   padding: 20px;
   border-radius: 16px;
-  width: 1184px;
+  width: 50%;
   flex-direction: row;
   align-content: center;
   justify-content: space-around;
@@ -134,8 +134,9 @@ div input {
   padding: 0 20px;
   height: 26px;
 }
-div input[type="number"]::-webkit-inner-spin-button,
-div input[type="number"]::-webkit-outer-spin-button {
+
+div .amount-input::-webkit-inner-spin-button,
+div .amount-input::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
   -moz-appearance: textfield !important;
