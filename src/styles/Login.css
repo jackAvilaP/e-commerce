@@ -1,26 +1,19 @@
 .container-login {
   margin: 0;
   padding: 25px;
-  max-width: 400px;
-  background-attachment: fixed;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 8rem 0 5rem 0;
+  align-items: center;
 }
 
 .login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  border-radius: 10px;
   width: 400px;
   padding: 40px 40px 20px 40px;
-  margin-top: 35px;
-  transform: translate(-50%, -50%);
   background: #fff;
-  box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
 }
 
 .login-box .user-box {

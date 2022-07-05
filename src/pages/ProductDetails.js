@@ -12,6 +12,9 @@ import { categorysId } from "../store/slices/products.slice";
 import { Cards } from "../components";
 import { setIsOpen } from "../store/slices/viewCartList.slice";
 
+import { addCart } from "../store/slices/login.slice";
+
+
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
@@ -34,6 +37,16 @@ const ProductDetails = () => {
     };
     odtenerProducto();
   }, [id, dispatch]);
+
+  const addCartList = () => {
+    const productsInCart = {
+      id: store.id,
+      quantity: counter
+    };
+    if (localStorage.getItem("token")) {
+      dispatch(addCart(productsInCart));
+    }
+  };
 
   return (
     <div className="container-details" onClick={() => dispatch(setIsOpen(false))}>
@@ -101,7 +114,7 @@ const ProductDetails = () => {
                         </div>
                       </div>
                     </div>
-                    <button className="button-buy">
+                    <button className="button-buy" onClick={()=>addCartList()}>
                       Add cart{" "}
                       <FontAwesomeIcon
                         className="FontAwesomeIcon"

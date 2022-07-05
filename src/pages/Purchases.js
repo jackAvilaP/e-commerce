@@ -1,9 +1,17 @@
-import React from 'react';
-
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPurchase } from '../store/slices/purchases.slice';
 import "../styles/Purchases.css";
 
 const Purchases = () => {
+  const firstName = localStorage.getItem('user');
+  const purchases = useSelector(state => state.productPurchase);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getPurchase())
+  },[dispatch,firstName])
+  console.log(purchases);
   return (
     <div className='container-purchases'>
       {/*<h1>My Purchases</h1>

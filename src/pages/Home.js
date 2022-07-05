@@ -6,18 +6,27 @@ import { Cards, Filter, SearchBar } from "../components";
 import { getProducts } from "../store/slices/products.slice";
 import "../styles/Home.css";
 import { getCartList } from "../store/slices/login.slice";
+
 import { setIsOpen } from "../store/slices/viewCartList.slice";
+
+
 
 const Home = () => {
   const products = useSelector((state) => state.product);
   const toggles = useSelector((state) => state.isOpen);
+
   const dispatch = useDispatch();
   const id = useId();
 
   useEffect(() => {
     dispatch(getProducts());
-    dispatch(getCartList());
+    if(localStorage.getItem("token")){
+      dispatch(getCartList());
+    }
+   
   }, [dispatch, toggles]);
+
+
 
   return (
     <div className="container-home" onClick={() => dispatch(setIsOpen(false))}>

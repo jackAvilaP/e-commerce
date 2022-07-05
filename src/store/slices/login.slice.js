@@ -7,67 +7,87 @@ import getConfig from "../../utils/getConfig";
 
 
 export const loginSlice = createSlice({
-    name: "cartUser",
-    initialState: [],
-    reducers: {
-        setCart: (state, action) => action.payload,
-    }
+  name: "cartUser",
+  initialState: [],
+  reducers: {
+    setCart: (state, action) => action.payload,
+  }
 });
 
 export const { setCart } = loginSlice.actions;
 
-export const checkIn = (formstate) => async (dispatch) => {
-    dispatch(setIsLoading(true));
-    try {
-        try {
-            const res = await axios
-                .post(
-                    "https://ecommerce-api-react.herokuapp.com/api/v1/users",
-                    formstate
-                );
-            return console.log("first");
-        } catch (error) {
-            if (error.response.status === 401 || error.response.status === 404 || error.response.status === 400) {
-                alert(error.response.data.message);
-            }
-        }
-    } finally {
-        return dispatch(setIsLoading(false));
-    }
+export const checkIn = (formstate) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .post(
+      "https://ecommerce-api-react.herokuapp.com/api/v1/users",
+      formstate
+    ).then(res => console.log("first"))
+    .catch(error => {
+      if (error.response.status === 401 || error.response.status === 404 || error.response.status === 400) {
+        alert(error.response.data.message)
+      }
+    })
+    .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const loginUser = (formstate) => async (dispatch) => {
-    dispatch(setIsLoading(true));
-    try {
-        try {
-            const res = await axios
-                .post(
-                    "https://ecommerce-api-react.herokuapp.com/api/v1/users/login",
-                    formstate
-                );
-            localStorage.setItem("user", res.data.data.user.firstName);
-            localStorage.setItem("token", res.data.data.token);
-            console.log(res.data.data.user.firstName);
-        } catch (error) {
-            if (error.response.status === 401 || error.response.status === 404) {
-                alert(error.response.data.message);
-            }
-        }
-    } finally {
-        return dispatch(setIsLoading(false));
-    }
+export const loginUser = (formstate) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .post(
+      "https://ecommerce-api-react.herokuapp.com/api/v1/users/login",
+      formstate
+    ).then(res => {
+      localStorage.setItem("user", res.data.data.user.firstName);
+      localStorage.setItem("token", res.data.data.token);
+    })
+    .catch(error => {
+      if (error.response.status === 401 || error.response.status === 404) {
+        alert(error.response.data.message)
+      }
+    })
+    .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const getCartList = () => async (dispatch) => {
-    try {
-        const res = await axios
-            .get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig);
-        return dispatch(setCart(res.data.data.cart.products));
-    } catch (error) {
-        if (error.response.status === 401 || error.response.status === 404) {
-            alert(error.response.data.message);
-        }
-    }
+
+export const getCartList = () => (dispatch) => {
+  return axios
+    .get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig)
+    .then((res) => dispatch(setCart(res.data.data.cart.products)))
+    .catch(error => {
+      if (error.response.status === 401 || error.response.status === 404) {
+        console.log(error.response.data.message)
+      }
+    });
+
 }
 
+export const addCart = (productsInCart) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .post(
+      "https://ecommerce-api-react.herokuapp.com/api/v1/cart",
+      productsInCart,
+      getConfig
+    )
+    .finally(() => dispatch(setIsLoading(false)));
+
+}
+
+
+export const deletCartProduct =(id) =>(dispatch)=>{
+  dispatch(setIsLoading(true));
+  return axios
+    .delete(
+      `https://ecommerce-api-react.herokuapp.com/api/v1/cart/${id}`,
+      getConfig
+    )
+    .then(() => dispatch(getCartList()))
+    .catch((error) => {
+      if (error.response.status === 404 && localStorage.getItem(" ")) {
+        dispatch(setCart([]));
+      }
+    })
+    .finally(() => dispatch(setIsLoading(false)));
+}
 export default loginSlice.reducer;

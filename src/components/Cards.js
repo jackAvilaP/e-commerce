@@ -3,16 +3,27 @@ import "../styles/Cards.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import { addCart } from "../store/slices/login.slice";
+import { useDispatch } from "react-redux";
 
 
 const Cards = ({ product }) => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
 
   const clickDetail = (id) => {
     navigate(`/details/${id}`);
   };
 
+  const addCartList = () => {
+    const productsInCart = {
+      id: product.id,
+      quantity: 1
+    };
+    if (localStorage.getItem("token")) {
+      dispatch(addCart(productsInCart));
+    }
+  };
  
   return (
     <li>
@@ -33,7 +44,7 @@ const Cards = ({ product }) => {
             $ <b>{product.price}</b>
           </p>
         )}
-        <button className="cards-button">
+        <button className="cards-button" onClick={()=>addCartList()}>
           <FontAwesomeIcon className="FontAwesomeIcon" icon={faCartShopping} />
         </button>
       </div>

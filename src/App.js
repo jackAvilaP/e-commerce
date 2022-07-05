@@ -8,6 +8,11 @@ function App() {
   return (
     <div className="App">
       <Routers/>
+      <footer>
+        <div className='copyright'>
+        © E-commerce 2022
+        </div>
+      </footer>
     </div>
   );
 }
