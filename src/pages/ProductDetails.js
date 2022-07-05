@@ -10,6 +10,7 @@ import SpinnerLoading from "../components/SpinnerLoading";
 import { useDispatch, useSelector } from "react-redux";
 import { categorysId } from "../store/slices/products.slice";
 import { Cards } from "../components";
+import { setIsOpen } from "../store/slices/viewCartList.slice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const ProductDetails = () => {
   }, [id, dispatch]);
 
   return (
-    <div className="container-details">
+    <div className="container-details" onClick={() => dispatch(setIsOpen(false))}>
       <section id="flexbox-direction-img">
         <div>
           {store.length === 0 ? (
@@ -87,6 +88,7 @@ const ProductDetails = () => {
                             type="number"
                             id="amount"
                             name="amount"
+                            className="amount-input"
                             onChange={(e) => setCounter(e.target.value)}
                             value={counter}
                           />

@@ -19,8 +19,37 @@
 
 .cart .miniList-cart {
   flex: 1 1;
+  list-style: none;
+  margin-bottom: 20px;
 }
 
+.cart .miniList-cart h1 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #009ae4;
+}
+
+.cart .miniList-cart .items-cart {
+  margin-bottom: 20px;
+  padding: 0 20px;
+  border-bottom: 1px solid #dcd9d9;
+}
+.cart .miniList-cart .items-cart .section-description {
+  flex-direction: row;
+}
+.cart .miniList-cart .items-cart .section-description svg {
+  color: #009ae4;
+}
+
+.cart .miniList-cart .items-cart .section-priceQuantity,
+.section-description {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+.cart .miniList-cart .items-cart Link{
+  margin-bottom: 18px;
+}
 .cart .checkout {
   border-top: 1px solid #dcd9d9;
   padding: 30px 20px;

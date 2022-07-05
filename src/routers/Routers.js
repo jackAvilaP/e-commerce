@@ -10,7 +10,7 @@ const Routers = () => {
   const isLoading = useSelector((state) => state.isLoading);
 
   return (
-    <HashRouter>
+    <HashRouter >
       {isLoading && <SpinnerLoading />}
       <NavBar />
       <Routes>

@@ -5,6 +5,7 @@ import '../styles/Login.css';
 
 import { useForm } from '../Hooks/useForm';
 import { loginUser } from '../store/slices/login.slice';
+import { setIsOpen } from '../store/slices/viewCartList.slice';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Login = () => {
       //navigate("/");
     } else {
       dispatch(loginUser(formstate));
-      
+
       navigate("/");
     }
 
