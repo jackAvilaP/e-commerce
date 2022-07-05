@@ -10,8 +10,8 @@ import "../styles/Carts.css";
 
 
 const CartsList = () => {
+  
   const toggles = useSelector((state) => state.isOpen);
-
   const productCarts = useSelector((state) => state.cartUser);
   const dispatch = useDispatch();
 
