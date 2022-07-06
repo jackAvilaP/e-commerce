@@ -6,21 +6,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { deletCartProduct, getCartList } from "../store/slices/login.slice";
+import { postCheckout } from "../store/slices/purchases.slice";
 import "../styles/Carts.css";
 
 
 const CartsList = () => {
-  
+
   const toggles = useSelector((state) => state.isOpen);
   const productCarts = useSelector((state) => state.cartUser);
   const dispatch = useDispatch();
 
 
   useEffect(() => {
-    if(localStorage.getItem("token")){
+    if (localStorage.getItem("token")) {
       dispatch(getCartList());
     }
   }, [toggles]);
+
 
   return (
     <div>
@@ -53,7 +55,7 @@ const CartsList = () => {
               <span className="label">Total: </span>
               <b>$ {total}</b>
             </div>*/}
-            <button className="button-buy">Checkout</button>
+            <button className="button-buy" onClick={() => dispatch(postCheckout())}>Checkout</button>
           </div>
         </div>
       </section>

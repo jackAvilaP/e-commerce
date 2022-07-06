@@ -3,7 +3,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/ProductDetails.css";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 import SpinnerLoading from "../components/SpinnerLoading";
@@ -17,6 +17,7 @@ import { addCart } from "../store/slices/login.slice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
   const [imgId, setImgId] = useState(0);
@@ -45,6 +46,8 @@ const ProductDetails = () => {
     };
     if (localStorage.getItem("token")) {
       dispatch(addCart(productsInCart));
+    } else {
+      navigate(`/user`);
     }
   };
 
@@ -93,7 +96,7 @@ const ProductDetails = () => {
                         <div>
                           <button
                             className="button-counter"
-                            onClick={() =>counter>1 && setCounter(counter - 1)}
+                            onClick={() => counter > 1 && setCounter(counter - 1)}
                           >
                             -
                           </button>
@@ -114,7 +117,7 @@ const ProductDetails = () => {
                         </div>
                       </div>
                     </div>
-                    <button className="button-buy" onClick={()=>addCartList()}>
+                    <button className="button-buy" onClick={() => addCartList()}>
                       Add cart{" "}
                       <FontAwesomeIcon
                         className="FontAwesomeIcon"

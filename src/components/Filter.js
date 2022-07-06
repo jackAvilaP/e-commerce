@@ -33,7 +33,7 @@ const Filter = () => {
       dispatch(getProducts());
     }
   };
-
+  
   useEffect(() => {
     dispatch(getCategorys());
   }, []);

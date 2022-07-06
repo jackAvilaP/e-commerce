@@ -1,7 +1,7 @@
 
 import React from "react";
 import { useForm } from "../Hooks/useForm";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/CheckIn.css";
 import { useDispatch } from "react-redux";
 import { checkIn } from "../store/slices/login.slice";
@@ -91,13 +91,13 @@ const CheckIn = () => {
               value={phone}
               required
             />
-            <label>Phone </label>
+            <label>Phone</label>
           </div>
-
         </form>
         <button className="myButton" onClick={checkInAdd}>
           Register
         </button>
+        <p>you have an account? <Link to='/login' className="link">login</Link></p>
       </div>
     </div>
   );

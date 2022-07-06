@@ -6,7 +6,7 @@
 }
 .container-purchases h1 {
     margin-bottom: 30px;
-  }
+}
 .main-container {
     max-width: 721px;
 }
@@ -21,6 +21,11 @@
 .container-purchases .purchase-item .purchase-products-list {
     padding: 30px 10px 10px;
     width: 679px;
+}
+
+.header {
+    border-bottom: 1px solid #dcd9d9;
+    padding: 1.5rem;
 }
 
 .container-purchases .purchase-item .purchase-products-list .product-item {
@@ -51,4 +56,4 @@
 .container-purchases .purchase-item .purchase-products-list .product-item .name {
     font-size: 1rem;
     width: 40%;
-  }
+}

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin: 8rem 0 5rem 0;
+  margin: 3rem 0 5rem 0;
   align-items: center;
 }
 
@@ -15,6 +15,13 @@
   background: #fff;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }
+.test-data {
+  background: #d8f5fd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 12px;
+}
+
 
 .login-box .user-box {
   position: relative;
@@ -22,13 +29,19 @@
 }
 .login-box strong {
   color: #515151;
-  font-size: 20px;
-  padding: 15px;
+  display: block;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
 .login-box p {
+  margin: 20px 0 0;
+}
+
+.login-box p .link{
   color: #009ae4;
-  margin: 20px 0;
-  
 }
 .login-box .user-box input {
   width: 100%;
@@ -42,6 +55,8 @@
   outline: none;
   background-color: transparent;
 }
+
+
 
 .login-box .user-box label {
   position: absolute;

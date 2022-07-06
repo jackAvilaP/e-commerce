@@ -35,8 +35,12 @@ const Login = () => {
     <div className='container-login'>
       <div className=" login-box">
         <strong>Welcome! Enter your email and password to continue</strong>
-        <p>You have to log in to add products to your cart</p>
-        < form>
+        <div className='test-data'>
+          <b>Test data</b>
+          <p>user2@gmail.com</p>
+          <p>pass1234</p>
+        </div>
+        <form>
           <div className="user-box">
             <input id="email" type="email" name='email' onChange={onInputChage} value={email} required />
             <label> Email</label>
@@ -47,7 +51,7 @@ const Login = () => {
           </div>
         </form>
         <button className='myButton' onClick={submit} > Submit</button>
-        <p>Don't have an account? <Link to='/checkin'>Sign up</Link></p>
+        <p>Don't have an account? <Link to='/checkin' className='link'>Sign up</Link></p>
       </div>
 
     </div>
