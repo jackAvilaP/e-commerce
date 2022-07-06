@@ -7,7 +7,6 @@ const Purchases = () => {
   const firstName = localStorage.getItem('user');
   const purchases = useSelector(state => state.productPurchase);
   const dispatch = useDispatch();
-  const date = new Date();
 
   useEffect(() => {
     dispatch(getPurchase())
