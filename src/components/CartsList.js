@@ -22,12 +22,6 @@ const CartsList = () => {
     }
   }, [toggles]);
 
-
-
-  useEffect(() => {
-    dispatch(getCartList());
-  }, [toggles])
-  console.log(productCarts);
   return (
     <div>
       <section className={`cart-modal ${toggles && "open"}`}>
