@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 import '../styles/LogOut.css';
 
 const LogOut = () => {
     const navigate = useNavigate();
+
 
     const firstName = localStorage.getItem('user');
 

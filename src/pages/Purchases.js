@@ -12,7 +12,7 @@ const Purchases = () => {
   useEffect(() => {
     dispatch(getPurchase())
   }, [dispatch, firstName])
-  console.log(purchases)
+
   return (
     <div className='container-purchases' onClick={() => dispatch(setIsOpen(false))}>
       <section className='main-container'>
@@ -25,23 +25,19 @@ const Purchases = () => {
                   <b>{fecha.toDateString(purchase.createdAt)}</b>
                 </div>
                 {purchase.cart.products.map(product => (
-                  <lo className='product-item' key={product.id + 635}>
+                  <div className='product-item' key={product.id + 635}>
                     <p className='name'>{product.title}</p>
                     <div className='quantity'>
                       <p className='box'>{product.productsInCart.quantity}</p>
                     </div>
                     <div>$  {product.price}</div>
-                  </lo>
+                  </div>
                 ))}
               </ul>
             </div>
           ))
         }
       </section>
-      {/*<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sit praesentium, illum suscipit recusandae, quod omnis possimus et, eligendi ipsam nobis officiis ullam ipsa? Magnam dolorem quaerat explicabo eos libero.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptatem expedita atque aperiam, harum dolore incidunt quaerat rem vero ullam veritatis dignissimos, recusandae laborum, est dolor architecto. Esse, qui error!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio non delectus minus voluptas ex neque iure iste nemo accusantium aperiam porro incidunt natus, odit quis harum dolorem, earum quibusdam excepturi.
-      </p>*/}
 
     </div>
   )
