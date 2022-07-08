@@ -28,3 +28,9 @@
 .form-search button #iconGlass {
     font-size: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    .search-box {
+        margin: 0 10px 30px 10px;
+    }
+}

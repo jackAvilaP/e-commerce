@@ -75,3 +75,30 @@ section .price-input input {
   margin-top: 10px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .accordion {
+    display: none;
+  }
+  .menu-filter {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .menu-filter .icon-filter {
+    padding: 5px;
+    display: flex;
+    margin-right: 12px;
+    width: 5rem;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+  .menu-filter .icon-filter:hover{
+    color: #009ae4;
+  }
+  .menu-filter .icon-filter p{
+    color: #515151;
+  }
+}

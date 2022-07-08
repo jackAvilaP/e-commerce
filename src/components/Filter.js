@@ -11,8 +11,13 @@ import {
   filterProductsValue,
 } from "../store/slices/products.slice";
 
-import "../styles/AccordionFilter..css";
+import "../styles/AccordionFilter.css";
 
+import {
+  faFilter
+} from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Filter = () => {
   const [categoryid, setId] = useState(0);
   // const [active, setActive] = useState(false);
@@ -33,7 +38,7 @@ const Filter = () => {
       dispatch(getProducts());
     }
   };
-  
+
   useEffect(() => {
     dispatch(getCategorys());
   }, []);
@@ -47,10 +52,13 @@ const Filter = () => {
   }, [categoryid]);
 
   return (
-    <div>
+    <div className="menu-filter">
+      <div className="icon-filter">
+        <FontAwesomeIcon icon={faFilter} />
+        <p>Filter</p>
+      </div>
       <div>
         <div className="accordion">
-
           <div className="accordion-item">
             <div className="accordion-title" >
               <div><h3>Price</h3></div>
