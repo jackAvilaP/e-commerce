@@ -12,6 +12,7 @@
     max-width: 900px;
     justify-content: center;
     align-items: stretch;
+    width: 100%;
 }
 
 .form-search input {
