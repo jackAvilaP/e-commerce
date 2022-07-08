@@ -1,6 +1,9 @@
 .search-box {
+    display: flex;
     margin: 0 10px 30px 115px;
     position: relative;
+    width: 100%;
+    justify-content: center;
 }
 .search-box .form-search {
     display: flex;
