@@ -12,11 +12,11 @@ import { setIsOpen } from "../store/slices/viewCartList.slice";
 
 
 
+
 const Home = () => {
   const products = useSelector((state) => state.product);
   const toggles = useSelector((state) => state.isOpen);
   const dispatch = useDispatch();
-
   const id = useId();
 
   useEffect(() => {
@@ -24,7 +24,6 @@ const Home = () => {
     if (localStorage.getItem("token")) {
       dispatch(getCartList());
     }
-
   }, [dispatch, toggles]);
 
 

@@ -80,6 +80,7 @@
         margin: 1rem 0;
         transition: all 0.5s ease;
     }
+    
     .navbar nav .active {
         display: flex;
     }

@@ -6,6 +6,7 @@
 
 .home {
     display: flex;
+    padding: 0.5rem;
 }
 
 .home-products{
