@@ -14,6 +14,7 @@ import { setIsOpen } from "../store/slices/viewCartList.slice";
 
 import { addCart } from "../store/slices/login.slice";
 
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const ProductDetails = () => {
   const addCartList = () => {
     const productsInCart = {
       id: store.id,
-      quantity: counter
+      quantity: counter,
     };
     if (localStorage.getItem("token")) {
       dispatch(addCart(productsInCart));
@@ -52,7 +53,10 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="container-details" onClick={() => dispatch(setIsOpen(false))}>
+    <div
+      className="container-details"
+      onClick={() => dispatch(setIsOpen(false))}
+    >
       <section id="flexbox-direction-img">
         <div>
           {store.length === 0 ? (
@@ -61,25 +65,31 @@ const ProductDetails = () => {
             <div className="img-details">
               <div className="container-flex-info">
                 <section className="containerImg-big">
-                  <div className="containerImgs-small">
-                    {store.productImgs.map((img, i) => (
-                      <img
-                        src={img}
-                        alt="product-img"
-                        id="img-small"
-                        key={img}
-                        onClick={() => {
-                          setImgId(i);
-                        }}
-                      />
-                    ))}
-                  </div>
                   <div className="imgBig">
-                    <img
-                      src={store.productImgs[imgId]}
-                      alt="product-img"
-                      id="img-big"
-                    />
+                    <div className="containerImgs-small">
+                      {store.productImgs.map((img, i) => (
+                        <img
+                          src={img}
+                          alt="product-img"
+                          id="img-small"
+                          key={img}
+                          onClick={() => {
+                            setImgId(i);
+                          }}
+                        />
+                      ))}
+                    </div>
+                    <div className="iconDetails">
+                      <img
+                        src={store.productImgs[imgId]}
+                        alt="product-img"
+                        id="img-big"
+                      />
+                      <FontAwesomeIcon
+                        className="FontAwesomeIcon"
+                        icon={faCircleInfo}
+                      />
+                    </div>
                   </div>
                 </section>
                 <section className="product-info">
@@ -87,16 +97,18 @@ const ProductDetails = () => {
                   <p>{store.description}</p>
                   <div className="product-info-purchase">
                     <div className="product-info-price">
-                      <div>
+                      <div className="info-price">
                         <label>Price:</label>
                         <p className="price">${store.price}</p>
                       </div>
-                      <div>
+                      <div className="info-quantity">
                         <label>Quantity:</label>
                         <div>
                           <button
                             className="button-counter"
-                            onClick={() => counter > 1 && setCounter(counter - 1)}
+                            onClick={() =>
+                              counter > 1 && setCounter(counter - 1)
+                            }
                           >
                             -
                           </button>
@@ -117,7 +129,10 @@ const ProductDetails = () => {
                         </div>
                       </div>
                     </div>
-                    <button className="button-buy" onClick={() => addCartList()}>
+                    <button
+                      className="button-buy"
+                      onClick={() => addCartList()}
+                    >
                       Add cart{" "}
                       <FontAwesomeIcon
                         className="FontAwesomeIcon"

@@ -19,11 +19,11 @@ const Acoordion = ({ title, active, setActive, busqueda, first ,setFirst}) => {
             </div>
             <div className={(active === title && first? "show " : "") + " acoordionContent"}>
                 <div className='container'>
-                    <div>
+                    
                         {
                             busqueda === "price"  ? <Price /> : <Category/>
                         }
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -25,7 +25,6 @@ const CartsList = () => {
 
 
   return (
-    <div>
       <section className={`cart-modal ${toggles && "open"}`}>
         <div className="cart">
           <div className="miniList-cart">
@@ -59,7 +58,6 @@ const CartsList = () => {
           </div>
         </div>
       </section>
-    </div>
   );
 };
 

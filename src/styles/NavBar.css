@@ -17,12 +17,13 @@
     flex: 1 1;
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 14px 20px;
+    padding: 20px 20px;
 }
 
 .navbar nav .title strong {
     color: #009ae4;
     cursor: pointer;
+    width: 150px;
 }
 
 .navbar nav .icon {
@@ -112,5 +113,6 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        padding: 4px 20px;
     }
 }

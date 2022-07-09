@@ -3,6 +3,8 @@
     max-width: 480px;
     margin: 0;
     color: #fff;
+    display: flex;
+    justify-content: center;
 }
 
 .accordion {
@@ -56,6 +58,6 @@
 
 @media screen and (max-width: 600px) {
     .accordionHeading {
-        width: 60%;
+        width: 97%;
     }
 }

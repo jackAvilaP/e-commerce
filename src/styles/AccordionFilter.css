@@ -6,9 +6,6 @@
   width: 252px;
 }
 
-.accordion .accordion-item {
-}
-
 .accordion .accordion-item .accordion-title {
   display: flex;
   justify-content: space-between;
@@ -24,7 +21,7 @@
 }
 
 .accordion .accordion-content {
-  margin-left: 1.5rem;
+  width: 60%;
 }
 
 .accordion .accordion-content .section-price,
@@ -52,7 +49,6 @@ section .price-input input {
   border-radius: 5px;
   color: #fff;
   display: block;
-  margin: 25px 0 20px auto;
   padding: 8px 15px;
 }
 
@@ -85,6 +81,7 @@ section .price-input input {
 @media screen and (max-width: 600px) {
   .accordion {
   }
+
   .menu-filter {
     display: flex;
     flex-direction: column;
@@ -97,8 +94,8 @@ section .price-input input {
     padding: 5px;
     display: flex;
     margin-right: 12px;
-    width: 100%;
-    justify-content: space-evenly;
+    width: 60%;
+    justify-content: flex-end;
     cursor: pointer;
   }
   .menu-filter .icon-filter:hover {
