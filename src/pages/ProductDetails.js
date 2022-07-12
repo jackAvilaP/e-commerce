@@ -22,6 +22,7 @@ const ProductDetails = () => {
   const products = useSelector((state) => state.product);
   const [store, setStore] = useState([]);
   const [imgId, setImgId] = useState(0);
+  const [viewDetails, setViewDetails] = useState(false);
   const [counter, setCounter] = useState(1);
   const { id } = useParams();
 
@@ -92,11 +93,13 @@ const ProductDetails = () => {
                   <h2>
                     <FontAwesomeIcon
                       icon={faCircleInfo}
-                    />
-                    {" "}
+                      onClick={() => setViewDetails(!viewDetails)}
+                    />{" "}
                     {store.title}
                   </h2>
-                  <p>{store.description}</p>
+                  <p className={viewDetails & "showInfo"}>
+                    {store.description}
+                  </p>
                   <div className="product-info-purchase">
                     <div className="product-info-price">
                       <div className="info-price">
