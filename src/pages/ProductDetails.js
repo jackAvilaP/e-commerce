@@ -91,13 +91,22 @@ const ProductDetails = () => {
                 </section>
                 <section className="product-info">
                   <h2>
-                    <FontAwesomeIcon
-                      icon={faCircleInfo}
-                      onClick={() => setViewDetails(!viewDetails)}
-                    />{" "}
                     {store.title}
+                    <div
+                      className="infoIcon"
+                      onClick={() => {
+                        setViewDetails(!viewDetails);
+                        console.log("click");
+                      }}
+                      >
+                      <FontAwesomeIcon icon={faCircleInfo} />{"  "}
+                    </div>
                   </h2>
-                  <p className={viewDetails & "showInfo"}>
+                  <p
+                    className={
+                      (viewDetails ? "showInfo" : "") + " description"
+                    }
+                  >
                     {store.description}
                   </p>
                   <div className="product-info-purchase">
