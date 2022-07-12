@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Filter = () => {
   const [active, setActive] = useState("");
-  const [first, setFirst] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -21,25 +22,25 @@ const Filter = () => {
 
   return (
     <div className="menu-filter">
-      <div className="icon-filter">
+      <div className="icon-filter" onClick={() => setShow(!show)}>
         <FontAwesomeIcon icon={faFilter} />
         <p>Filter</p>
       </div>
-      <div className="showFilter">
+      <div className={(show ? "viewsOn" : "") + " showFilter"}>
         <Acoordion
           title="Price"
           active={active}
           setActive={setActive}
           busqueda="price"
-          first={first}
-          setFirst={setFirst}
+          toggle={toggle}
+          setToggle={setToggle}
         />
         <Acoordion
           title="Category"
           active={active}
           setActive={setActive}
-          first={first}
-          setFirst={setFirst}
+          toggle={toggle}
+          setToggle={setToggle}
         />
       </div>
     </div>

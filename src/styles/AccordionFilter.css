@@ -79,8 +79,7 @@ section .price-input input {
 }
 
 @media screen and (max-width: 600px) {
-  .accordion {
-  }
+
 
   .menu-filter {
     display: flex;
