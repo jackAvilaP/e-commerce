@@ -85,15 +85,17 @@ const ProductDetails = () => {
                         alt="product-img"
                         id="img-big"
                       />
-                      <FontAwesomeIcon
-                        className="FontAwesomeIcon"
-                        icon={faCircleInfo}
-                      />
                     </div>
                   </div>
                 </section>
                 <section className="product-info">
-                  <h2>{store.title}</h2>
+                  <h2>
+                    <FontAwesomeIcon
+                      icon={faCircleInfo}
+                    />
+                    {" "}
+                    {store.title}
+                  </h2>
                   <p>{store.description}</p>
                   <div className="product-info-purchase">
                     <div className="product-info-price">

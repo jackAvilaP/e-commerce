@@ -158,3 +158,43 @@ div .amount-input::-webkit-outer-spin-button {
   margin: 0;
   -moz-appearance: textfield !important;
 }
+.FontAwesomeIcon{
+  color: #009ae4;
+}
+@media screen and (max-width: 980px) {
+  .img-details .container-flex-info {
+    flex-direction: column;
+    align-items: center;
+  } 
+  .product-info {
+    width: 20rem;
+  }
+
+  .product-info h2 {
+    margin: 20px 0;
+  }
+
+  .product-info p {
+    font-size: 14px;
+  }
+
+  .product-info-purchase {
+    margin-top: 20px;
+  }
+  
+  section .imgBig {
+    flex-direction: column-reverse;
+    width: auto;
+  }
+  .img-details #img-big {
+    height: 12rem;
+  }
+
+.img-details .containerImg-big .containerImgs-small {
+  flex-direction: row;
+}
+
+.img-details .card-category {
+  flex-direction: column;
+}
+}
