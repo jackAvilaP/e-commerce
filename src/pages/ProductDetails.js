@@ -53,6 +53,19 @@ const ProductDetails = () => {
     }
   };
 
+  const lessQuantity = () => {
+    if (counter > 1) {
+      setCounter(counter - 1)
+    }
+    console.log("resta: ", counter);
+  };
+
+  const moreQuantity = () => {
+    console.log("suma: ", counter);
+    setCounter(counter + 1)
+  };
+
+
   return (
     <div
       className="container-details"
@@ -98,7 +111,7 @@ const ProductDetails = () => {
                         setViewDetails(!viewDetails);
                         console.log("click");
                       }}
-                      >
+                    >
                       <FontAwesomeIcon icon={faCircleInfo} />{"  "}
                     </div>
                   </h2>
@@ -118,14 +131,14 @@ const ProductDetails = () => {
                       <div className="info-quantity">
                         <label>Quantity:</label>
                         <div>
+
                           <button
                             className="button-counter"
-                            onClick={() =>
-                              counter > 1 && setCounter(counter - 1)
-                            }
+                            onClick={() => lessQuantity()}
                           >
                             -
                           </button>
+
                           <input
                             type="number"
                             id="amount"
@@ -136,7 +149,7 @@ const ProductDetails = () => {
                           />
                           <button
                             className="button-counter"
-                            onClick={() => setCounter(counter + 1)}
+                            onClick={() => moreQuantity()}
                           >
                             +
                           </button>
